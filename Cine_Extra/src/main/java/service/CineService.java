@@ -58,6 +58,7 @@ public class CineService {
         System.out.println("Ahora datos de la pelicula");
         Pelicula peli1 = crearPelicula();
         String[][] salaMatrix = cine1.getSala();
+        String[][] salaAux = new String[8][6];
         int entrar = 0;
 
         do {
@@ -100,6 +101,12 @@ public class CineService {
                 }
             }
         }
+        
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 6; j++) {
+                salaAux[i][j] = " ";
+            }
+        }
         /*
         for (Espectador aux : listaSpect) {
             if (cine1.getPrecio() <= aux.getDineroDisponible()
@@ -127,8 +134,14 @@ public class CineService {
             int pC = aleatorio.nextInt(6);
             if (cine1.getPrecio() <= x.getDineroDisponible()
                     && peli1.getEdadMin() <= x.getEdad()) {
-                if (!salaMatrix[pF][pC].equalsIgnoreCase("X")) {
                     salaMatrix[pF][pC] = " X ";
+            }
+        }
+        
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (!salaAux[i][j].equalsIgnoreCase("X")) {
+                    salaAux[i][j] = salaMatrix[i][j];
                 }
             }
         }
@@ -136,7 +149,7 @@ public class CineService {
         //Impreime la matriz
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 6; j++) {
-                System.out.print(salaMatrix[i][j] + " ");
+                System.out.print(salaAux[i][j] + " ");
             }
             System.out.println("");
         }
