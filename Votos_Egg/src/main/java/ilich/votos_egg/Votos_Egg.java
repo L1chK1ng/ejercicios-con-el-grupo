@@ -28,6 +28,7 @@ public class Votos_Egg {
         listaAlumno = sim.crearAlumno(listaDni, listaNombre);
         
         sim.mostrarAlumnos(listaAlumno);
+        sim.mostrarVotos(listaAlumno);
     }
    
 }

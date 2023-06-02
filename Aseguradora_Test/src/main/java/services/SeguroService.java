@@ -679,11 +679,10 @@ public class SeguroService {
                 } else {
                     System.out.println("No se dio de baja el vehicluo");
                 }
-            } else {
-                System.out.println("No se encuentra el documento ingresado");
+            } else System.out.println("No se encuentra el documento ingresado");
             }
         }
-    }
+
 
     public void menuCliente() {
         int op = 0;

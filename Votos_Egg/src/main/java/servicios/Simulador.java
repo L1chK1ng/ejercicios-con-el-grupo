@@ -1,6 +1,8 @@
 package servicios;
 
 import entidades.Alumno;
+import entidades.Votos;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -87,9 +89,11 @@ public class Simulador {
             }
             listDni.remove(indi);
         }
-        */
 
-        
+         */
+
+
+
             while (listaAlumno.size() < cant) {
                 Long dniLong = r.nextLong(10000000, 99000000);
                 dni = dniLong.toString();
@@ -99,6 +103,8 @@ public class Simulador {
                     listaAlumno.add(aluTemp);
                 }
             }
+
+
          
         return listaAlumno;
     }
@@ -128,6 +134,64 @@ public class Simulador {
         } while (i != listaAlumno.size());
 
         System.out.println("se repite dni: " + (cont - listaAlumno.size()));
+    }
+
+    public Votos votacion(ArrayList<Alumno> listaAlumno, Alumno alumno) {
+        Random r = new Random();
+        ArrayList <Alumno> votados = new ArrayList();
+
+        int k=0;
+            Votos voto = new Votos();
+            voto.setAlumnoQueVota(alumno);
+            for (int i = 0; i < 3; i++) {
+
+                switch (i) {
+                    case 0:
+                        do {
+                            k = r.nextInt(listaAlumno.size());
+
+                        } while(alumno==listaAlumno.get(k));
+
+                        votados.add(listaAlumno.get(k));
+                        voto.setAlumnosQueVoto(votados);
+                        listaAlumno.get(k).setVotos((listaAlumno.get(k).getVotos()+1));
+                    break;
+                    case 1:
+                        do {
+                            k = r.nextInt(listaAlumno.size());
+
+                        } while((alumno==listaAlumno.get(k)) || (listaAlumno.get(k) == voto.getAlumnosQueVoto().get(0)));
+                        votados.add(listaAlumno.get(k));
+                        voto.setAlumnosQueVoto(votados);
+                        listaAlumno.get(k).setVotos((listaAlumno.get(k).getVotos()+1));
+                    break;
+                    case 2:
+                        do {
+                            k = r.nextInt(listaAlumno.size());
+
+                        } while((alumno==listaAlumno.get(k)) || (listaAlumno.get(k) == voto.getAlumnosQueVoto().get(0)) || (listaAlumno.get(k) == voto.getAlumnosQueVoto().get(1)));
+                        votados.add(listaAlumno.get(k));
+                        voto.setAlumnosQueVoto(votados);
+                        listaAlumno.get(k).setVotos((listaAlumno.get(k).getVotos()+1));
+                }
+            }
+            return voto;
+    }
+
+    public void mostrarVotos(ArrayList <Alumno> listaAlumno){
+        ArrayList <Votos> listaVotacion = new ArrayList<>();
+
+        for (Alumno aux: listaAlumno) {
+            Votos voto = votacion(listaAlumno, aux);
+            listaVotacion.add(voto);
+        }
+
+        for (Votos aux : listaVotacion) {
+            System.out.println("el alumno " + aux.getAlumnoQueVota().getNombre() + " DNI: " +
+                    "" + aux.getAlumnoQueVota().getDni() + "Votos: " + aux.getAlumnoQueVota().getVotos());
+            System.out.println("Y voto :" + aux.getAlumnosQueVoto().toString());
+        }
+
     }
 
 }

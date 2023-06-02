@@ -104,7 +104,7 @@ public class CineService {
         
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 6; j++) {
-                salaAux[i][j] = " ";
+                salaAux[i][j] = " X ";
             }
         }
         /*
@@ -128,20 +128,39 @@ public class CineService {
         
         //Con esta clase se genera el random mas comodo
         Random aleatorio = new Random();
+        int cont1=0, cont2=0;
 
         for (Espectador x : listaSpect) {
-            int pF = aleatorio.nextInt(8);
-            int pC = aleatorio.nextInt(6);
+            int pF = aleatorio.nextInt(48);
+            
             if (cine1.getPrecio() <= x.getDineroDisponible()
                     && peli1.getEdadMin() <= x.getEdad()) {
-                    salaMatrix[pF][pC] = " X ";
+                cont1++;
+                
+                for (int i = 0; i < salaAux.length; i++) {
+                    if (!salaAux[i].equals("x")) {
+                        salaAux[i+1] = salaMatrix[i];
+                        cont2++;
+                        continue;
+                    } else {
+                        salaAux[i] = salaMatrix[i];
+                        continue;
+                    }
+                }
+    
             }
         }
+        
+        //probando otro metodo
+        
+        
+        cont =0;
         
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 6; j++) {
                 if (!salaAux[i][j].equalsIgnoreCase("X")) {
                     salaAux[i][j] = salaMatrix[i][j];
+                    cont++;
                 }
             }
         }
@@ -158,6 +177,10 @@ public class CineService {
         for (Espectador x : listaSpect) {
             System.out.println(x);
         }
+        
+        System.out.println("\n cont1=" + cont1);
+        System.out.println("cont2=" + cont2);
+        System.out.println("equis en la matriz= " + cont);
 
     }
 
