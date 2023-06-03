@@ -57,10 +57,10 @@ sino es correcta usara la letra F por defecto. Este método se debe invocar al c
 objeto y no será visible.
      */
     private Character comprobarConsumo(Character a) {
-        if (a >= 'a' && a <= 'f') {
+        if ((a >= 'a' && a <= 'f') || (a >= 'A' && a <= 'F')) {
             a = a;
         } else {
-            a = 'f';
+            a = 'F';
         }
 
         return a;
@@ -89,6 +89,76 @@ precio se le da un valor base de $1000.
      */
     public Electrodomestico crearElectro() {
         Scanner input = new Scanner(System.in).useDelimiter("\n");
-        
+
+        double precio = 0d;
+        do {
+            System.out.println("Ingrese el precio del electrodomestico (precio base $1000)");
+            precio = input.nextDouble();
+        } while (precio <= 1000d);
+
+        System.out.println("Ingrese el color del electrodomestico");
+        String color = input.next();
+
+        System.out.println("Ingrese el consumo energetico A - F");
+        Character consumo = input.next().charAt(0);
+
+        System.out.println("Ingrese el peso del electrodomestico");
+        double peso = input.nextDouble();
+
+        return new Electrodomestico(precio, peso, color, consumo);
+    }
+
+    public void precioFinal (Electrodomestico electro) {
+
+        Character letra = electro.getConsumo();
+        double caso=0;
+        if ((electro.getPeso() >= 1) && (electro.getPeso() <= 19)) {
+            caso = 100d;
+        } else if((electro.getPeso() >= 20) && (electro.getPeso() <= 49)) {
+            caso = 500d;
+        } else if ((electro.getPeso() >= 50) && (electro.getPeso() <= 79)) {
+            caso = 800d;
+        } else if (electro.getPeso() >80) {
+            caso = 1000d;
+        } else {
+            caso = 100d;
+        }
+
+        switch (letra) {
+            case 'a':
+            case 'A':
+                electro.setPrecio(electro.getPrecio() + 1000d + caso);
+            break;
+            case 'b':
+            case 'B':
+                electro.setPrecio(electro.getPrecio() + 800d + caso);
+            break;
+            case 'c':
+            case 'C':
+                electro.setPrecio(electro.getPrecio() + 600d + caso);
+            break;
+            case 'd':
+            case 'D':
+                electro.setPrecio(electro.getPrecio() + 500d + caso);
+            break;
+            case 'e':
+            case 'E':
+                electro.setPrecio(electro.getPrecio() + 300d + caso);
+            break;
+            case 'f':
+            case 'F':
+                electro.setPrecio(electro.getPrecio() + 100d + caso);
+                break;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Electrodomestico{" +
+                "precio=" + precio +
+                ", peso=" + peso +
+                ", color='" + color + '\'' +
+                ", consumo=" + consumo +
+                '}';
     }
 }
