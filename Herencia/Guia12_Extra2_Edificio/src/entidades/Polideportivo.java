@@ -29,6 +29,7 @@ public final class Polideportivo extends Edificio {
         this.techada = techada;
     }
 
+    /*
     public Polideportivo crearPolideportivo() {
         Scanner input = new Scanner(System.in).useDelimiter("\n");
         System.out.println("---------------------------------------------");
@@ -54,6 +55,8 @@ public final class Polideportivo extends Edificio {
 
         return new Polideportivo(ancho, largo, alto, nombre, techo);
     }
+
+     */
 
     @Override
     public double calcularSuperficie() {

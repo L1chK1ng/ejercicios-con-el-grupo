@@ -1,19 +1,18 @@
 package entidades;
 
-import java.util.Scanner;
-
-public final class EdficioDeOficina extends Edificio {
+public final class EdificioDeOficina extends Edificio {
 
     private Integer cantidadOficina, cantidadPersonaOficina, numeroPisos;
 
-    public EdficioDeOficina(Double ancho, Double largo, Double alto, Integer cantidadOficina, Integer cantidadPersonaOficina, Integer numeroPisos) {
+    public EdificioDeOficina(Double ancho, Double largo, Double alto, Integer cantidadOficina, Integer cantidadPersonaOficina, Integer numeroPisos) {
         super(ancho, largo, alto);
         this.cantidadOficina = cantidadOficina;
         this.cantidadPersonaOficina = cantidadPersonaOficina;
         this.numeroPisos = numeroPisos;
     }
 
-    public EdficioDeOficina crearEdificio() {
+    /*
+    public EdficioDeOficina crearEdificiOf() {
         Scanner input = new Scanner(System.in).useDelimiter("\n");
         System.out.println("--------------------------------------------");
         System.out.println("Ingrese el ancho del edificio");
@@ -30,6 +29,8 @@ public final class EdficioDeOficina extends Edificio {
         int personas = input.nextInt();
         return new EdficioDeOficina(ancho, largo, alto, oficinas, personas, pisos);
     }
+
+     */
 
     @Override
     public double calcularSuperficie() {
@@ -52,4 +53,6 @@ public final class EdficioDeOficina extends Edificio {
         int porPiso = this.cantidadOficina * this.cantidadPersonaOficina;
         return porPiso;
     }
+
+
 }
