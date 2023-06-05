@@ -30,10 +30,11 @@ public class Lavadora extends Electrodomestico {
         return new Lavadora(electro.getPrecio(), electro.getPeso(), electro.getColor(), electro.getConsumo(), carga);
     }
 
-    public void precioFinal(Lavadora lava) {
-        super.precioFinal(lava);
-        if (lava.getCarga() > 30) {
-            lava.setPrecio(lava.getPrecio() + 500);
+    @Override
+    public void precioFinal() {
+        super.precioFinal();
+        if (this.carga > 30) {
+            this.precio = this.precio + 500;
         }
     }
 
