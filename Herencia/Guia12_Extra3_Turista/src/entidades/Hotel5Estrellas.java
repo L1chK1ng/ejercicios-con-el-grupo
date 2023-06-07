@@ -40,6 +40,22 @@ public class Hotel5Estrellas extends Hotel4Estrellas {
     }
 
     @Override
+    public double precioFinal() {
+        int capHotel = this.cantPisos * this.cantHabitaciones;
+        double valorRestaurant=0d;
+        if (this.capRestaurant < 30) {
+            valorRestaurant = 10;
+        } else if (this.capRestaurant >= 30 || this.capRestaurant <= 50) {
+            valorRestaurant = 30;
+        } else {
+            valorRestaurant = 50;
+        }
+        int valorLimosina = this.cantLimosina * 15;
+        double total = 50 + capHotel + valorRestaurant + 50 + valorLimosina;
+        return total;
+    }
+
+    @Override
     public String toString() {
         return "Hotel5Estrellas{" +
                 "cantSalonesConf=" + cantSalonesConf +

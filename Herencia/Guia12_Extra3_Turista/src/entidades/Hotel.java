@@ -60,6 +60,8 @@ public abstract class Hotel extends Alojamiento {
         this.gym = gym;
     }
 
+    protected abstract double precioFinal();
+
     @Override
     public String toString() {
         return "Hotel{" +
