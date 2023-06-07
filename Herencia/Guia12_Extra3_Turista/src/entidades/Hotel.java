@@ -8,14 +8,16 @@ public abstract class Hotel extends Alojamiento {
 
     protected Integer cantHabitaciones, numCamas, cantPisos;
     protected Double precioHab;
+    protected Boolean gym;
 
 
-    public Hotel(Integer cantHabitaciones, Integer numCamas, Integer cantPisos, Double precioHab, String nombre, String direccion, String localidad, String gerenteEnc) {
+    public Hotel(String nombre, String direccion, String localidad, String gerenteEnc, Integer cantHabitaciones, Integer numCamas, Integer cantPisos, Double precioHab, Boolean gym) {
         super(nombre, direccion, localidad, gerenteEnc);
         this.cantHabitaciones = cantHabitaciones;
         this.numCamas = numCamas;
         this.cantPisos = cantPisos;
         this.precioHab = precioHab;
+        this.gym = gym;
     }
 
     public Integer getCantHabitaciones() {
@@ -50,6 +52,14 @@ public abstract class Hotel extends Alojamiento {
         this.precioHab = precioHab;
     }
 
+    public Boolean getGym() {
+        return gym;
+    }
+
+    public void setGym(Boolean gym) {
+        this.gym = gym;
+    }
+
     @Override
     public String toString() {
         return "Hotel{" +
@@ -57,6 +67,7 @@ public abstract class Hotel extends Alojamiento {
                 ", numCamas=" + numCamas +
                 ", cantPisos=" + cantPisos +
                 ", precioHab=" + precioHab +
+                ", gym=" + gym +
                 ", nombre='" + nombre + '\'' +
                 ", direccion='" + direccion + '\'' +
                 ", localidad='" + localidad + '\'' +

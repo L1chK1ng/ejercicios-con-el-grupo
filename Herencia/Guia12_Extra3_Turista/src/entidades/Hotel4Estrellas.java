@@ -6,23 +6,15 @@ package entidades;
  */
 public class Hotel4Estrellas extends Hotel {
     
-    protected Boolean gimnasio;
+    protected String TipoGym;
     protected String nombRestaurant;
     protected Integer capRestaurant;
-    
-    public Hotel4Estrellas(Boolean gimnasio, String nombRestaurant, Integer capRestaurant, Integer cantHabitaciones, Integer numCamas, Integer cantPisos, Double precioHab, String nombre, String direccion, String localidad, String gerenteEnc) {
-        super(cantHabitaciones, numCamas, cantPisos, precioHab, nombre, direccion, localidad, gerenteEnc);
-        this.gimnasio = gimnasio;
+
+    public Hotel4Estrellas(String nombre, String direccion, String localidad, String gerenteEnc, Integer cantHabitaciones, Integer numCamas, Integer cantPisos, Double precioHab, Boolean gym, String tipoGym, String nombRestaurant, Integer capRestaurant) {
+        super(nombre, direccion, localidad, gerenteEnc, cantHabitaciones, numCamas, cantPisos, precioHab, gym);
+        TipoGym = "Tipo B";
         this.nombRestaurant = nombRestaurant;
         this.capRestaurant = capRestaurant;
-    }
-
-    public Boolean getGimnasio() {
-        return gimnasio;
-    }
-
-    public void setGimnasio(Boolean gimnasio) {
-        this.gimnasio = gimnasio;
     }
 
     public String getNombRestaurant() {
@@ -41,9 +33,25 @@ public class Hotel4Estrellas extends Hotel {
         this.capRestaurant = capRestaurant;
     }
 
+    public String getTipoGym() {
+        return TipoGym;
+    }
+
     @Override
     public String toString() {
-        return "Hotel4Estrellas{" + "gimnasio=" + gimnasio + ", nombRestaurant=" + nombRestaurant + ", capRestaurant=" + capRestaurant + '}';
+        return "Hotel4Estrellas{" +
+                "TipoGym='" + TipoGym + '\'' +
+                ", nombRestaurant='" + nombRestaurant + '\'' +
+                ", capRestaurant=" + capRestaurant +
+                ", cantHabitaciones=" + cantHabitaciones +
+                ", numCamas=" + numCamas +
+                ", cantPisos=" + cantPisos +
+                ", precioHab=" + precioHab +
+                ", gym=" + gym +
+                ", nombre='" + nombre + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", localidad='" + localidad + '\'' +
+                ", gerenteEnc='" + gerenteEnc + '\'' +
+                '}';
     }
-    
 }
