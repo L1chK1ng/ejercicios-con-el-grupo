@@ -69,7 +69,7 @@ también deben afectar al precio.
      */
 
     @Override
-    public void precioFinal() {
+    public double precioFinal() {
         super.precioFinal();
         if (this.pulgada > 40) {
             this.precio = this.precio * 1.30;
@@ -78,6 +78,8 @@ también deben afectar al precio.
         if (this.TDT) {
             this.precio = this.precio + 500;
         }
+        double total = this.precio;
+        return total;
     }
 
 

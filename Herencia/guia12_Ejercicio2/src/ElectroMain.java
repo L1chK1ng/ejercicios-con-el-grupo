@@ -19,6 +19,7 @@ public class ElectroMain {
         Lavadora lava = new Lavadora();
         Televisor tv = new Televisor();
         ArrayList <Electrodomestico> listaElectro = new ArrayList();
+        double totalTV=0d, totalLava=0d;
 
         Televisor tv1 = tv.crearTele();
         listaElectro.add(tv1);
@@ -33,13 +34,16 @@ public class ElectroMain {
         int i =0;
         for (Electrodomestico aux : listaElectro) {
             if (aux instanceof Televisor) {
-                aux.precioFinal();
+                totalTV += aux.precioFinal();
             } else if (aux instanceof Lavadora) {
-                aux.precioFinal();
+                totalLava += aux.precioFinal();
             }
             System.out.println("Electro " + i + ":" + aux);
         }
 
+        System.out.println("El precio total de los televisores es: " + "$" + totalTV);
+        System.out.println("El precio total de las lavadoras es: " + "$" + totalLava);
+        System.out.println("El total de todos los electrodomesticos es: " + (totalTV + totalLava));
         
        
 

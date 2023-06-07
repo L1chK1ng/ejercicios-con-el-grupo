@@ -31,11 +31,13 @@ public class Lavadora extends Electrodomestico {
     }
 
     @Override
-    public void precioFinal() {
+    public double precioFinal() {
         super.precioFinal();
         if (this.carga > 30) {
             this.precio = this.precio + 500;
         }
+        double total = this.precio;
+        return total;
     }
 
 

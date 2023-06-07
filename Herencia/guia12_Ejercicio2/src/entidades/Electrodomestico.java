@@ -109,7 +109,7 @@ precio se le da un valor base de $1000.
     }
 
 
-        public void precioFinal () {
+        public double precioFinal () {
 
             Character letra = this.consumo;
             double caso=0;
@@ -151,6 +151,8 @@ precio se le da un valor base de $1000.
                     this.precio = this.precio + 100d + caso;
                     break;
             }
+            double total = this.precio;
+            return total;
         }
 
 
