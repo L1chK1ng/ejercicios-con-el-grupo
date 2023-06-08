@@ -32,6 +32,10 @@ public abstract class ExtraHotel extends Alojamiento {
         return "ExtraHotel{" +
                 "privado=" + privado +
                 ", superficie=" + superficie +
+                ", nombre='" + nombre + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", localidad='" + localidad + '\'' +
+                ", gerenteEnc='" + gerenteEnc + '\'' +
                 '}';
     }
 }

@@ -51,8 +51,8 @@ public class Hotel5Estrellas extends Hotel4Estrellas {
             valorRestaurant = 50;
         }
         int valorLimosina = this.cantLimosina * 15;
-        double total = 50 + capHotel + valorRestaurant + 50 + valorLimosina;
-        return total;
+        this.precioHab += capHotel + valorRestaurant + 50 + valorLimosina;
+        return this.precioHab;
     }
 
     @Override

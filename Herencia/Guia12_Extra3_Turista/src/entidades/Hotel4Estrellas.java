@@ -48,8 +48,8 @@ public class Hotel4Estrellas extends Hotel {
         } else {
             valorRestaurant = 50;
         }
-        double total = 50 + capHotel + valorRestaurant + 30;
-        return total;
+        this.precioHab += capHotel + valorRestaurant + 30;
+        return this.precioHab;
     }
 
     @Override

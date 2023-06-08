@@ -31,6 +31,7 @@ public class Rentas {
         System.out.println("Lista de hoteles disponibles");
         System.out.println(separador);
 
+
         int i = 1;
         double total = 0d;
         for (Alojamiento aux : lista) {
@@ -54,8 +55,8 @@ public class Rentas {
                 System.out.println("Cantidad de salones de conferencias: " + ((Hotel5Estrellas) aux).getCantSalonesConf() + " salones");
                 System.out.println("Cantidad de Suites: " + ((Hotel5Estrellas) aux).getCantSuites() + " suites");
                 System.out.println("Cantidad de limosinas: " + ((Hotel5Estrellas) aux).getCantLimosina() + " limosinas");
-                total = ((Hotel5Estrellas) aux).precioFinal();
-                System.out.println("Precio: " + total + "$");
+                ((Hotel5Estrellas) aux).precioFinal();
+                System.out.println("Precio: " + ((Hotel5Estrellas) aux).getPrecioHab() + "$");
             } else if (aux instanceof Hotel4Estrellas) {
                 System.out.println(separador);
                 System.out.println("Hotel " + i + ": 4 estrellas ");
@@ -72,8 +73,8 @@ public class Rentas {
                 }
                 System.out.println("Nombre del restaurant: " + ((Hotel4Estrellas) aux).getNombRestaurant());
                 System.out.println("Capacidad del restaurant: " + ((Hotel4Estrellas) aux).getCapRestaurant() + " personas");
-                total = ((Hotel4Estrellas) aux).precioFinal();
-                System.out.println("Precio: " + total + "$");
+                ((Hotel4Estrellas) aux).precioFinal();
+                System.out.println("Precio: " + ((Hotel4Estrellas) aux).getPrecioHab()+ "$");
             }
             i++;
         }
