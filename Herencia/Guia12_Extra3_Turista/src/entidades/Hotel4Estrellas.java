@@ -52,6 +52,7 @@ public class Hotel4Estrellas extends Hotel {
         return this.precioHab;
     }
 
+
     @Override
     public String toString() {
         return "Hotel4Estrellas{" +

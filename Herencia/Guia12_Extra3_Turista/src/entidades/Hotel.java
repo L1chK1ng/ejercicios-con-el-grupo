@@ -62,6 +62,7 @@ public abstract class Hotel extends Alojamiento {
 
     protected abstract double precioFinal();
 
+
     @Override
     public String toString() {
         return "Hotel{" +
