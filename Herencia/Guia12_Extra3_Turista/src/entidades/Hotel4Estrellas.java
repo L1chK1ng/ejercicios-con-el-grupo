@@ -67,6 +67,6 @@ public class Hotel4Estrellas extends Hotel {
                 ", direccion='" + direccion + '\'' +
                 ", localidad='" + localidad + '\'' +
                 ", gerenteEnc='" + gerenteEnc + '\'' +
-                '}';
+                '}' + "\n";
     }
 }

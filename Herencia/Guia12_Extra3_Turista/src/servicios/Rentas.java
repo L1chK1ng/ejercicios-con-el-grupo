@@ -1,10 +1,14 @@
 package servicios;
 
 import entidades.Alojamiento;
+import entidades.Hotel;
 import entidades.Hotel4Estrellas;
 import entidades.Hotel5Estrellas;
+import utilidades.Comparador;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Rentas {
@@ -24,6 +28,18 @@ public class Rentas {
         return listaAlojamientos;
     }
 
+   public ArrayList<Hotel> ordenarHotel (ArrayList <Alojamiento> listaAloja) {
+        ArrayList<Hotel> listaHotel = new ArrayList<>();
+
+        for (Alojamiento aux: listaAloja) {
+            if (aux instanceof Hotel) {
+                Hotel hotelTemp = (Hotel) aux;
+                listaHotel.add(hotelTemp);
+            }
+        }
+        Collections.sort(listaHotel, Comparador.precioDescen);
+        return listaHotel;
+   }
     public void menuAlojamiento(ArrayList<Alojamiento> lista) {
         Scanner input = new Scanner(System.in).useDelimiter("\n");
         String separador = "-----------------------------------------------";
